@@ -25,7 +25,8 @@ function Brand() {
 function AppShell({ children }: { children: ReactNode }) {
   const [location] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
-  return <div dir="rtl" className="min-h-screen overflow-x-hidden bg-[#f4f1eb]">
+  return(
+    <div dir="rtl" className="min-h-screen overflow-x-hidden bg-[#f4f1eb]">
     <header className="relative z-20 mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-5 py-5 lg:px-10">
       <Brand />
       <nav className="hidden items-center gap-1 rounded-full border border-[#e2ded6] bg-[#fffdf9]/75 p-1 shadow-[0_7px_24px_rgba(36,62,58,.04)] backdrop-blur md:flex" aria-label="التنقل الرئيسي">
@@ -36,6 +37,7 @@ function AppShell({ children }: { children: ReactNode }) {
         <button type="button" className="grid size-10 place-items-center rounded-full border border-[#e2ded6] bg-[#fffdf9] text-[#33534c] md:hidden" aria-label="فتح القائمة" onClick={() => setMobileOpen(!mobileOpen)}>{mobileOpen ? <X className="size-[18px]" /> : <Menu className="size-[18px]" />}</button>
       </div>
     </header>
+  
     {mobileOpen && <div className="fixed inset-0 z-30 bg-[#243e3a]/15 backdrop-blur-sm md:hidden" onClick={() => setMobileOpen(false)}>
       <div className="absolute left-4 right-4 top-[78px] rounded-[24px] border border-[#e4e1d9] bg-[#fffdf9] p-3 shadow-[0_22px_60px_rgba(36,62,58,.18)]" onClick={(e) => e.stopPropagation()}>
         <div className="mb-2 flex items-center justify-between border-b border-[#ede9e2] px-3 pb-3"><span className="text-xs text-[#78807c]">التنقل</span><span className="text-xs text-[#b3b5ad]">Psy-Hadith</span></div>
@@ -44,7 +46,8 @@ function AppShell({ children }: { children: ReactNode }) {
     </div>}
     <main>{children}</main>
     <footer className="mx-auto mt-24 flex max-w-[1400px] flex-col gap-3 border-t border-[#e4e1d9] px-5 py-7 text-xs text-[#8a908c] sm:flex-row sm:items-center sm:justify-between lg:px-10"><span>Psy-Hadith · حديث نفس</span><span>واجهة أولية — المحتوى قيد البناء</span></footer>
-  </div>;
+    </div>
+  );
 }
 
 function Router() {
