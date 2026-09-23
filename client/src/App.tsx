@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home, { ArticlesPage, AssessmentsPage, GuidePage, QuestionsPage } from "./pages/Home";
 import { useState, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 const navItems = [
   { href: "/", label: "الرئيسية", icon: Compass },
@@ -79,6 +80,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <AppShell><Router /></AppShell>
+          <Analytics />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
